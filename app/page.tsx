@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaCss3Alt, FaDiscord, FaGithub, FaHtml5, FaJava, FaPython } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
@@ -25,7 +26,7 @@ function ProLangCard(
         <h3 className="text-2xl text-black font-bold mx-1 mb-4">{title}</h3>
       </div>
       <div>
-        <p className="text-md text-slate-600">
+        <p className="text-md text-slate-600 whitespace-pre-wrap">
           {des}
         </p>
       </div>
@@ -34,16 +35,19 @@ function ProLangCard(
 }
 
 function ContactCard(
-  { title, des, icon }:
-  { title: string, des?: string, icon: React.ReactNode }
+  { title, icon, url }:
+  { title: string, icon: React.ReactNode, url: string }
 ) {
   return (
-    <div className="flex items-center justify-center p-4 group">
-      <div className="group-hover:text-blue-500 transition">
-        {icon}
+    <Link href={url}>
+      <div className="flex items-center justify-center p-4 group">
+        <div className="text-white group-hover:text-blue-500 transition">
+          {icon}
+        </div>
+        <h3 className="text-3xl text-white mx-2 font-bold underline cursor-pointer group-hover:text-blue-500 transition">{title}</h3>
       </div>
-      <h3 className="text-3xl text-black mx-2 font-bold underline cursor-pointer group-hover:text-blue-500 transition">{title}</h3>
-    </div>
+    </Link>
+
   )
 }
 
@@ -57,9 +61,17 @@ export default function HomePage() {
           <div className="border border-slate-200 w-24 my-8" />
 
           <div className="flex gap-6">
-            <FaGithub size={32} />
-            <FaXTwitter size={32} />
-            <FaDiscord size={32} />
+            <Link href={"https://github.com/motikun"}>
+              <FaGithub size={32} />
+            </Link>
+
+            <Link href={"https://x.com/motikun100"}>
+              <FaXTwitter size={32} />
+            </Link>
+    
+            <Link href={"https://discord.com/users/1162382859336683581"}>
+              <FaDiscord size={32} />
+            </Link>
           </div>
         </section>
 
@@ -81,23 +93,38 @@ export default function HomePage() {
           <div className="border border-slate-200 w-24 my-8" />
 
           <div className="grid grid-cols-4 gap-18">
-            <ProLangCard title="HTML" des="この言語から始めました。\n今はほとんど使い方をマスターし、使いこなしています。" icon={<FaHtml5 size={32} />} />
-            <ProLangCard title="CSS" des="HTMLと同時期に始めました。\nこれも、今はほとんど使い方をマスターし、使いこなしています。\n(最近はTaildwindを使っていますが)" icon={<FaCss3Alt size={32} />} />
-            <ProLangCard title="Python" des="主に簡単なGUIソフトやDiscordBotの開発に使っています。\nライブラリが豊富で、色々なところで活躍してくれます。" icon={<FaPython size={32} />} />
-            <ProLangCard title="Java" des="MinecraftのMODやプラグインを開発するのに使っています。\n処理速度は多少C++に劣るものの、実行のしやすさや処理速度が早いので愛用しています。" icon={<FaJava size={32} />} />
+            <ProLangCard title="HTML" 
+              des="この言語から始めました。
+                    今はほとんど使い方をマスターし、使いこなしています。" 
+              icon={<FaHtml5 size={32} />} />
+
+            <ProLangCard title="CSS" 
+              des="HTMLと同時期に始めました。
+              これも、今はほとんど使い方をマスターし、使いこなしています。
+              (最近はTaildwindを使っていますが)" 
+            icon={<FaCss3Alt size={32} />} />
+            
+            <ProLangCard title="Python" 
+              des="主に簡単なGUIソフトやDiscordBotの開発に使っています。
+              ライブラリが豊富で、色々なところで活躍してくれます。" 
+            icon={<FaPython size={32} />} />
+
+            <ProLangCard title="Java" 
+              des="MinecraftのMODやプラグインを開発するのに使っています。
+              処理速度はC++に劣るものの、実行のしやすさや処理速度が早いので愛用しています。" 
+            icon={<FaJava size={32} />} />
+          
           </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center p-20 bg-blue-50">
-          <h2 className="text-4xl text-[#094067]">連絡先</h2>
-
-          <div className="border border-slate-200 w-24 my-8" />
+        <section className="flex flex-col items-center justify-center p-20 bg-[#094067]">
+          <h2 className="text-4xl text-white mb-6">連絡先</h2>
 
           <div className="flex gap-4">
-            <ContactCard title="Github" icon={<FaGithub size={32} />} />
-            <ContactCard title="Twitter (X)" icon={<FaXTwitter size={32} />} />
-            <ContactCard title="Discord" icon={<FaDiscord size={32} />} />
-            <ContactCard title="Email" icon={<IoIosMail size={32} />} />
+            <ContactCard title="Github" icon={<FaGithub size={32} />} url="https://github.com/motikun" />
+            <ContactCard title="Twitter (X)" icon={<FaXTwitter size={32} />} url="https://x.com/motikun100" />
+            <ContactCard title="Discord" icon={<FaDiscord size={32} />} url="https://discord.com/users/1162382859336683581" />
+            <ContactCard title="Email" icon={<IoIosMail size={32} />} url="mailto:motikun070@gmail.com" />
           </div>
         </section>
       </main>
