@@ -1,65 +1,110 @@
-import Image from "next/image";
+import { FaCss3Alt, FaDiscord, FaGithub, FaHtml5, FaJava, FaPython } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
 
-export default function Home() {
+function ProjectCard(
+  { title, des }:
+  { title: string, des: string }
+) {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="min-w-xs p-10 bg-white">
+      <h3 className="text-black text-2xl mb-4">{title}</h3>
+      <p className="text-md text-slate-600">{des}</p>
     </div>
-  );
+  )
+}
+
+function ProLangCard(
+  { title, des, icon }:
+  { title: string, des: string, icon: React.ReactNode }
+) {
+  return (
+    <div className="border border-slate-400 rounded-md p-8 shadow-sm">
+      <div className="flex">
+        {icon}
+        <h3 className="text-2xl text-black font-bold mx-1 mb-4">{title}</h3>
+      </div>
+      <div>
+        <p className="text-md text-slate-600">
+          {des}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function ContactCard(
+  { title, des, icon }:
+  { title: string, des?: string, icon: React.ReactNode }
+) {
+  return (
+    <div className="flex items-center justify-center p-4 group">
+      <div className="group-hover:text-blue-500 transition">
+        {icon}
+      </div>
+      <h3 className="text-3xl text-black mx-2 font-bold underline cursor-pointer group-hover:text-blue-500 transition">{title}</h3>
+    </div>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <div>
+      <main>
+        <section className="flex flex-col items-center justify-center py-48 bg-white">
+          <h1 className="text-black text-6xl font-black">My name is <span className="text-blue-500">Moti</span></h1>
+
+          <div className="border border-slate-200 w-24 my-8" />
+
+          <div className="flex gap-6">
+            <FaGithub size={32} />
+            <FaXTwitter size={32} />
+            <FaDiscord size={32} />
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center justify-center py-20 bg-blue-50">
+          <h2 className="text-4xl text-[#094067]">プロジェクト</h2>
+
+          <div className="border border-slate-200 w-24 my-8" />
+
+          <p className="text-slate-600">今は何もありません (´；ω；｀)</p>
+
+          <div className="grid grid-cols-3 gap-20">
+            {/* 今後プロジェクトを始めたらここに。 <ProjectCard title="" des="" /> */}
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center justify-center p-20 bg-white">
+          <h2 className="text-4xl text-[#094067]">プログラミング言語</h2>
+
+          <div className="border border-slate-200 w-24 my-8" />
+
+          <div className="grid grid-cols-4 gap-18">
+            <ProLangCard title="HTML" des="この言語から始めました。\n今はほとんど使い方をマスターし、使いこなしています。" icon={<FaHtml5 size={32} />} />
+            <ProLangCard title="CSS" des="HTMLと同時期に始めました。\nこれも、今はほとんど使い方をマスターし、使いこなしています。\n(最近はTaildwindを使っていますが)" icon={<FaCss3Alt size={32} />} />
+            <ProLangCard title="Python" des="主に簡単なGUIソフトやDiscordBotの開発に使っています。\nライブラリが豊富で、色々なところで活躍してくれます。" icon={<FaPython size={32} />} />
+            <ProLangCard title="Java" des="MinecraftのMODやプラグインを開発するのに使っています。\n処理速度は多少C++に劣るものの、実行のしやすさや処理速度が早いので愛用しています。" icon={<FaJava size={32} />} />
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center justify-center p-20 bg-blue-50">
+          <h2 className="text-4xl text-[#094067]">連絡先</h2>
+
+          <div className="border border-slate-200 w-24 my-8" />
+
+          <div className="flex gap-4">
+            <ContactCard title="Github" icon={<FaGithub size={32} />} />
+            <ContactCard title="Twitter (X)" icon={<FaXTwitter size={32} />} />
+            <ContactCard title="Discord" icon={<FaDiscord size={32} />} />
+            <ContactCard title="Email" icon={<IoIosMail size={32} />} />
+          </div>
+        </section>
+      </main>
+
+      <footer className="flex items-center justify-center bg-[#094067]">
+        <span className="text-white my-4">&copy; 2026 Moti. All rights reserved.</span>
+      </footer>
+    </div>
+  )
 }
