@@ -87,12 +87,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center p-20 bg-white">
+        <section className="flex flex-col items-center justify-center lg:p-20 py-20 px-2 bg-white">
           <h2 className="text-4xl text-[#094067]">プログラミング言語</h2>
 
           <div className="border border-slate-200 w-24 my-8" />
 
-          <div className="grid grid-cols-4 gap-18">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-18 gap-4">
             <ProLangCard title="HTML" 
               des="この言語から始めました。
                     今はほとんど使い方をマスターし、使いこなしています。" 
@@ -120,7 +120,7 @@ export default function HomePage() {
         <section className="flex flex-col items-center justify-center p-20 bg-[#094067]">
           <h2 className="text-4xl text-white mb-6">連絡先</h2>
 
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 md:flex md:gap-4">
             <ContactCard title="Github" icon={<FaGithub size={32} />} url="https://github.com/motikun" />
             <ContactCard title="Twitter (X)" icon={<FaXTwitter size={32} />} url="https://x.com/motikun100" />
             <ContactCard title="Discord" icon={<FaDiscord size={32} />} url="https://discord.com/users/1162382859336683581" />
