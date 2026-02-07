@@ -1,7 +1,11 @@
+'use client'
+
 import Link from "next/link";
-import { FaCss3Alt, FaDiscord, FaGithub, FaHtml5, FaJava, FaPython } from "react-icons/fa";
+import { FaCss3Alt, FaDiscord, FaGithub, FaHtml5, FaJava, FaPython, FaReact } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
+import { motion } from "framer-motion";
+import { RiNextjsFill } from "react-icons/ri";
 
 function ProjectCard(
   { title, des }:
@@ -55,10 +59,17 @@ export default function HomePage() {
   return (
     <div>
       <main>
-        <section className="flex flex-col items-center justify-center py-48 bg-white">
-          <h1 className="text-black text-6xl font-black">My name is <span className="text-blue-500">Moti</span></h1>
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center justify-center py-48 bg-white">
 
-          <div className="border border-slate-200 w-24 my-8" />
+          <h1 className="text-black text-6xl font-black">My name is <span className="text-blue-500">Moti</span></h1>
+          <span className="text-slate-400 text-2xl my-4">I'm developer</span>
+
+          <div className="border border-slate-200 w-24 mb-8" />
 
           <div className="flex gap-6">
             <Link href={"https://github.com/motikun"}>
@@ -73,11 +84,54 @@ export default function HomePage() {
               <FaDiscord size={32} />
             </Link>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="flex flex-col items-center justify-center py-20 bg-blue-50">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }} 
+          className="flex flex-col items-center justify-center pb-20 bg-white">
+
+          <h2 className="text-4xl text-[#094067]">私について</h2>
+          <div className="border border-slate-200 w-24 my-8" />
+
+          <div className="mx-6 max-w-2xl text-slate-700 leading-relaxed">
+            <p className="mb-4">
+              こんにちは、motiです。プログラミングやインターネットが大好きな中学生です。
+            </p>
+            <p className="mb-4">
+              趣味でプログラミングを始めて約1年になります。最初はHTMLから入り、今ではWeb開発やネイティブアプリ開発など、興味の向くままにコードを書いています。将来はエンジニア（プログラマー）に就きたいです。
+            </p>
+
+            <h3 className="text-xl font-bold mt-8 mb-2 text-[#094067]">好きなこと</h3>
+            <p className="mb-4">
+              技術でアイデアを形にすることが好きです。
+              最近は、電子工作に興味が湧きつつあります。
+            </p>
+
+            <h3 className="text-xl font-bold mt-8 mb-2 text-[#094067]">制作スタイル</h3>
+            <p className="mb-4">
+              「作りたい！」と思った瞬間に手を動かすのがモットーです。
+              現在はNext.jsを使ったWeb制作や、MinecraftのMOD・プラグイン開発を中心に活動しています。
+            </p>
+
+            <h3 className="text-xl font-bold mt-8 mb-2 text-[#094067]">ゲーム</h3>
+            <p className="mb-4">
+              <strong>Minecraft:</strong> MODや外部サーバーで遊んでいます。遊ぶだけでなく開発側（MOD開発やプラグイン開発）としても楽しんでいます。<br />
+              <strong>VALORANT:</strong> 最高ランクはゴールド。楽しみつつ上を目指してプレイしています。
+            </p>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }} 
+          className="flex flex-col items-center justify-center py-20 bg-blue-50">
+
           <h2 className="text-4xl text-[#094067]">プロジェクト</h2>
-
           <div className="border border-slate-200 w-24 my-8" />
 
           <p className="text-slate-600">今は何もありません (´；ω；｀)</p>
@@ -85,22 +139,31 @@ export default function HomePage() {
           <div className="grid grid-cols-3 gap-20">
             {/* 今後プロジェクトを始めたらここに。 <ProjectCard title="" des="" /> */}
           </div>
-        </section>
+        </motion.section>
 
-        <section className="flex flex-col items-center justify-center lg:p-20 py-20 px-2 bg-white">
-          <h2 className="text-4xl text-[#094067]">プログラミング言語</h2>
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }} 
+          className="flex flex-col items-center justify-center lg:p-20 py-20 px-2 bg-white">
 
-          <div className="border border-slate-200 w-24 my-8" />
+          <h2 className="text-4xl text-[#094067]">プログラミング</h2>
 
+          <div className="flex flex-col items-center justify-center my-8">
+            <div className="border border-slate-400 w-full absolute" />
+            <h3 className="text-2xl text-slate-700 bg-white z-50 px-10">言語</h3>
+          </div>
+        
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-18 gap-4">
             <ProLangCard title="HTML" 
               des="この言語から始めました。
-                    今はほとんど使い方をマスターし、使いこなしています。" 
+                  基礎をマスターし、現在は様々なWebサイト制作に活用しています。" 
               icon={<FaHtml5 size={32} />} />
 
             <ProLangCard title="CSS" 
               des="HTMLと同時期に始めました。
-              これも、今はほとんど使い方をマスターし、使いこなしています。
+              こちらも、基礎をマスターし、現在は様々なWebサイト制作に活用しています。。
               (最近はTaildwindを使っていますが)" 
             icon={<FaCss3Alt size={32} />} />
             
@@ -113,11 +176,33 @@ export default function HomePage() {
               des="MinecraftのMODやプラグインを開発するのに使っています。
               処理速度はC++に劣るものの、実行のしやすさや処理速度が早いので愛用しています。" 
             icon={<FaJava size={32} />} />
-          
           </div>
-        </section>
 
-        <section className="flex flex-col items-center justify-center p-20 bg-[#094067]">
+          <div className="flex flex-col items-center justify-center my-8">
+            <div className="border border-slate-400 w-full absolute" />
+            <h3 className="text-2xl text-slate-700 bg-white z-50 px-10">フレームワーク・ライブラリ</h3>
+          </div>
+        
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-18 gap-4">
+            <ProLangCard title="React" 
+              des="JSのライブラリです。最近、興味が湧き始めたので使っています。まだまだ歴は浅いですがある程度のことならできるようになってきました。
+              このサイトもReactを使用しています。"
+              icon={<FaReact size={32} />} />
+
+            <ProLangCard title="Next.js"
+              des="Reactのフレームワークです。これも、最近興味が湧き始めたので使っています。Reactと一緒に使い始めたので歴は浅いです。
+              これも、ある程度のことならできるようになってきました。React同様、このサイトもNext.jsを使っています。"
+              icon={<RiNextjsFill size={32} />} />
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }} 
+          className="flex flex-col items-center justify-center p-20 bg-[#094067]">
+
           <h2 className="text-4xl text-white mb-6">連絡先</h2>
 
           <div className="grid grid-cols-1 md:flex md:gap-4">
@@ -126,7 +211,7 @@ export default function HomePage() {
             <ContactCard title="Discord" icon={<FaDiscord size={32} />} url="https://discord.com/users/1162382859336683581" />
             <ContactCard title="Email" icon={<IoIosMail size={32} />} url="mailto:motikun070@gmail.com" />
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <footer className="flex items-center justify-center bg-[#094067]">
