@@ -169,23 +169,6 @@ export default function HomePage() {
               />
             ))}
           </div>
-
-          <div className="flex flex-col items-center justify-center my-8">
-            <div className="border border-slate-400 w-full absolute" />
-            <h3 className="text-2xl text-slate-700 bg-white z-50 px-10">フレームワーク・ライブラリ</h3>
-          </div>
-        
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-18 gap-4">
-            <ProLangCard title="React" 
-              des="JSのライブラリです。最近、興味が湧き始めたので使っています。まだまだ歴は浅いですがある程度のことならできるようになってきました。
-              このサイトもReactを使用しています。"
-              icon={<FaReact size={32} />} />
-
-            <ProLangCard title="Next.js"
-              des="Reactのフレームワークです。これも、最近興味が湧き始めたので使っています。Reactと一緒に使い始めたので歴は浅いです。
-              これも、ある程度のことならできるようになってきました。React同様、このサイトもNext.jsを使っています。"
-              icon={<RiNextjsFill size={32} />} />
-          </div>
         </motion.section>
 
         <motion.section
